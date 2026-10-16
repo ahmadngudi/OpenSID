@@ -1545,7 +1545,7 @@ class Penduduk_model extends MY_Model
         }
     }
 
-        protected function status_ktp_sql()
+    protected function status_ktp_sql()
     {
         if (! $this->session->status_ktp) {
             return;
