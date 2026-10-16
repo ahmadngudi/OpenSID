@@ -317,6 +317,7 @@ class Penduduk_model extends MY_Model
         $this->umur_max_sql(); // Kode 13, 15
         $this->umur_sql(); // Kode 13, 15
         $this->akta_kelahiran_sql(); // Kode 17
+        $this->akta_perkawinan_sql(); // Kepemilikan Akta Perkawinan
         $this->hamil_sql(); // Filter blum digunakan
         $this->tag_id_card_sql(); // Filter blum digunakan
 
