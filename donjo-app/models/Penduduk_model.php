@@ -1523,6 +1523,27 @@ class Penduduk_model extends MY_Model
         }
     }
 
+    /**
+     * Filter statistik kepemilikan akta perkawinan.
+     * Penduduk dihitung memiliki akta hanya jika nomor akta dan tanggal perkawinan terisi.
+     */
+    protected function akta_perkawinan_sql()
+    {
+        $kf = $this->session->{'akta-perkawinan'};
+
+        if (! isset($kf)) {
+            return;
+        }
+
+        $memiliki_akta = "(u.akta_perkawinan IS NOT NULL AND u.akta_perkawinan <> '' AND u.tanggalperkawinan IS NOT NULL AND u.tanggalperkawinan <> '' AND u.tanggalperkawinan <> '0000-00-00')";
+
+        if ($kf == JUMLAH) {
+            $this->db->where($memiliki_akta, null, false);
+        } elseif ($kf == BELUM_MENGISI) {
+            $this->db->where("NOT {$memiliki_akta}", null, false);
+        }
+    }
+
     protected function status_ktp_sql()
     {
         if (! $this->session->status_ktp) {
@@ -1739,6 +1760,7 @@ class Penduduk_model extends MY_Model
         $this->umur_max_sql(); // Hanya u/ Pencarian Spesifik
         $this->umur_sql(); // Kode 13, 15
         $this->akta_kelahiran_sql(); // Kode 17
+        $this->akta_perkawinan_sql(); // Kepemilikan Akta Perkawinan
         $this->hamil_sql(); // Filter blum digunakan
         $this->tag_id_card_sql(); // Filter blum digunakan
         $this->nik_sementara_sql(); // NIK Sementara

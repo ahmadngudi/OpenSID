@@ -178,6 +178,11 @@ class StatistikPendudukEnum extends BaseEnum
         'slug'  => 'kepemilikan-kia',
         'label' => 'Kepemilikan KIA',
     ];
+    public const KEPEMILIKAN_AKTA_PERKAWINAN = [
+        'key'   => 'akta-perkawinan',
+        'slug'  => 'kepemilikan-akta-perkawinan',
+        'label' => 'Kepemilikan Akta Perkawinan',
+    ];
     public const KEPEMILIKAN_AKTA_KEMATIAN = [
         'key'   => 'akta-kematian',
         'slug'  => 'kepemilikan-akta-kematian',
@@ -213,6 +218,7 @@ class StatistikPendudukEnum extends BaseEnum
         self::STATUS_KEHAMILAN,
         self::KEPEMILIKAN_KIA,
         self::KEPEMILIKAN_AKTA_KEMATIAN,
+        self::KEPEMILIKAN_AKTA_PERKAWINAN,
     ];
 
     /**
